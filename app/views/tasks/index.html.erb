@@ -8,7 +8,7 @@
       <% else %>
         <i class="far fa-square"></i>
     <% end %>
-    <p> <%= task.title %> </p>
+    <p><%= link_to task.title, tasks_id_path(task) %></p>
   </div>
 <% end %>
 </div>

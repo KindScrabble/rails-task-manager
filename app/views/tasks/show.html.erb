@@ -1,5 +1,16 @@
 <div class="container">
-  <h1>My task</h1>
-  <p> <strong><%= @task.title %> </strong></p>
-  <p> <%= @task.details %> </p>
+  <h1><%= @task.title %></h1>
+  <div class="card">
+    <p> <%= @task.details %> </p>
+  </div>
+  <ul class = "list-inline">
+      <% if @task.completed? %>
+        <li class="list-inline-item"><i class="fas fa-check"></i></li>
+        <li class="list-inline-item">The task is completed </li>
+      <% else %>
+        <li class="list-inline-item"><i class="far fa-square"></i></li>
+        <li class="list-inline-item">The task is not completed yet</li>
+      <% end %>
+  </ul>
+  <%= link_to 'Go back to tasks', tasks_path %>
 </div>
