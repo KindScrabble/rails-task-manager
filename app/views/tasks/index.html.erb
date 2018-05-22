@@ -1,6 +1,9 @@
 <div class="container">
 <h1>My tasks</h1>
 
+<%= link_to 'Create new', tasks_new_path, class: 'btn btn-primary' %>
+
+
 <% @tasks.each do |task| %>
   <div class="category">
       <% if task.completed? %>
@@ -9,6 +12,11 @@
         <i class="far fa-square"></i>
     <% end %>
     <p><%= link_to task.title, tasks_id_path(task) %></p>
+    <p>
+      <%= link_to task_delete_path(task), method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do %>
+        <i class="fas fa-trash-alt"></i> Delete
+      <% end %>
+    </p>
   </div>
 <% end %>
 </div>
